@@ -413,7 +413,9 @@ void JobList::querySummary(bool extendedStats)
 			DeliveredTableMap::iterator dsi = fDeliveredTables.begin();
 			while (dsi != fDeliveredTables.end())
 			{
-				js = dynamic_cast<const JobStep*>(dsi->second.get());
+				//TODO: find another fix for dynamic cast or just eliminate it
+				// was dynamic_cast<const JobStep*>
+				js = dsi->second.get();
 				string ei;
 				int max = 0;
 				ei = js->extendedInfo();
